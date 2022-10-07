@@ -161,7 +161,7 @@ local config = {
   -- Please use this mappings table to set keyboard mapping since this is the
   -- lower level configuration and more robust one. (which-key will
   -- automatically pick-up stored data by this setting.)
-  mappings = require "user.my-mappings",
+  mappings = require "user.my-mappings.mappings",
 
   -- Configure plugins
   plugins = require "user.my-plugin",
@@ -192,20 +192,7 @@ local config = {
   },
 
   -- Modify which-key registration (Use this with mappings table in the above.)
-  ["which-key"] = {
-    -- Add bindings which show up as group name
-    register_mappings = {
-      -- first key is the mode, n == normal mode
-      n = {
-        -- second key is the prefix, <leader> prefixes
-        ["<leader>"] = {
-          -- third key is the key to bring up next level and its displayed
-          -- group name in which-key top level menu
-          ["b"] = { name = "Buffer" },
-        },
-      },
-    },
-  },
+  ["which-key"] = require "user.my-mappings.whichkey-style-mapping",
 
   -- This function is run last and is a good place to configuring
   -- augroups/autocommands and custom filetypes also this just pure lua so
