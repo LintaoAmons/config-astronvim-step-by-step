@@ -2,10 +2,11 @@ return {
   init = {
     -- You can disable default plugins as follows:
     ["goolord/alpha-nvim"] = { disable = true },
+    ["declancm/cinnamon.nvim"] = { disable = true },
 
     -- You can also add new plugins here as well:
     -- Add plugins, the packer syntax without the "use"
-    -- { "andweeb/presence.nvim" },
+    { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }, -- { "andweeb/presence.nvim" },
     -- {
     --   "ray-x/lsp_signature.nvim",
     --   event = "BufRead",
@@ -14,6 +15,9 @@ return {
     --   end,
     -- },
 
+    ["m-demare/hlargs.nvim"] = {
+      config = function() require("hlargs").setup() end,
+    },
     -- We also support a key value style plugin definition similar to NvChad:
     -- ["ray-x/lsp_signature.nvim"] = {
     --   event = "BufRead",
